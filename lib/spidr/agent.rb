@@ -264,7 +264,9 @@ module Spidr
     #   A page which has been visited.
     #
     def start_at(url,&block)
-      enqueue(url)
+      # enqueue(url)
+      @queue << url
+      @levels[url] = 0
       return run(&block)
     end
 
@@ -488,7 +490,7 @@ module Spidr
     def enqueue(url,level=0)
       url = sanitize_url(url)
 
-      if (!(queued?(url)))
+      if (!(queued?(url)) && visit?(url))
         link = url.to_s
 
         begin
