@@ -138,7 +138,6 @@ module Spidr
     # @see #initialize_events
     #
     def initialize(options={})
-      puts "sssss"
       @host_header  = options[:host_header]
       @host_headers = {}
 
@@ -213,6 +212,7 @@ module Spidr
     # @see #initialize
     #
     def self.site(url,options={},&block)
+      puts "sssss"
       url = URI(url.to_s) unless url.kind_of?(URI)
 
       agent = new(options.merge(:host => url.host),&block)
