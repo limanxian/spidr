@@ -138,6 +138,7 @@ module Spidr
     # @see #initialize_events
     #
     def initialize(options={})
+      puts "sssss"
       @host_header  = options[:host_header]
       @host_headers = {}
 
