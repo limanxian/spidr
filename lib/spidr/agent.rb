@@ -212,7 +212,6 @@ module Spidr
     # @see #initialize
     #
     def self.site(url,options={},&block)
-      puts "sssss"
       url = URI(url.to_s) unless url.kind_of?(URI)
 
       agent = new(options.merge(:host => url.host),&block)
@@ -489,7 +488,7 @@ module Spidr
     def enqueue(url,level=0)
       url = sanitize_url(url)
 
-      if (!(queued?(url)) && visit?(url))
+      if (!(queued?(url)))
         link = url.to_s
 
         begin
